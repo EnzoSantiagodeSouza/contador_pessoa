@@ -21,12 +21,14 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  void decrement(){ print('decrement'); }
+  void increment(){ print('increment'); }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Pode Entrar!',
           style: TextStyle(
@@ -42,6 +44,24 @@ class HomePage extends StatelessWidget {
               fontWeight: FontWeight.w700
             ),
           ),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(onPressed: decrement,
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  fixedSize: const Size(100, 100),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                ),
+                 child: Text('Sair')
+                 ),
+                 TextButton(onPressed: increment, 
+                 child: Text('Entrar')
+                 )
+              ],
+            )
         ],
       )
     );
